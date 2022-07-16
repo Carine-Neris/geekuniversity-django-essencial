@@ -2,7 +2,12 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'index.html')
+    context = {
+        'curso':'Programação web',
+        'linguagem': 'Python',
+        'framework': 'Django'
+    }
+    return render(request, 'index.html', context)
 
 
 def contato(request):
