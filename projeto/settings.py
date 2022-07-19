@@ -129,4 +129,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Usado para produção
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+#redireciona o usuário para index após o logout do admin
 LOGOUT_REDIRECT_URL = 'index'
