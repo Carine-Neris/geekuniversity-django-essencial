@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 
 def index(request):
+    print(request.headers)
+    print(request.user)
     context = {
         'curso':'Programação web',
         'linguagem': 'Python',
