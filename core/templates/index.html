@@ -8,5 +8,15 @@
 <h1>Hello, World</h1>
 <h2>{{curso}}</h2>
 <p>Estou usando a linguagem {{linguagem}} e o framework {{framework}} no curso.</p>
+
+<h2>Listando todos os produtos cadastrados no banco</h2>
+<table>
+{% comment %} Terminar a tabela e criar uma page mostando a tabela {% endcomment %}
+{% for item in produtos %}
+    {% comment %} O produto passado na url é o name que passamos na view {% endcomment %}
+    {% comment %} O item.id é o parametro que a url espera receber {% endcomment %}
+    <p><a href='{% url 'produto' item.id %}'>{{item.nome}}</a></p>
+{% endfor %}
+</table>
 </body>
 </html>
