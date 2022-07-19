@@ -1,11 +1,14 @@
-from django.shortcuts import render
+from re import template
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
+from django.template import loader
 from .models import Cliente, Produtos
 
 
 def index(request):
     itens = Produtos.objects.all()
     context = {
-        'curso':'Programação web',
+        'curso': 'Programação web',
         'linguagem': 'Python',
         'produtos': itens
     }
@@ -28,11 +31,28 @@ def teste(request):
 
 
 def produto(request, pk):
-    item = Produtos.objects.get(id=pk)
+    #item = Produtos.objects.get(id=pk)
+    item = get_object_or_404(Produtos, id=pk)
     # O retorno de informações tem que sem no formato dict
     to_dict = {
         'nome': item.nome,
         'preco': item.preco,
         'quantidade': item.estoque
     }
-    return render(request, 'produto.html',to_dict)
+    return render(request, 'produto.html', to_dict)
+
+
+def error404(request,ex):
+    template = loader.get_template('404.html')
+    return HttpResponse(content=template.render(),
+        content_type='text/html; charset=utf8',
+        status=404)
+
+
+def error500(request):
+    template = loader.get_template('500.html')
+    return HttpResponse(content=template.render(),
+                        content_type='text/html; charset=utf8',
+                        status=500)
+
+
