@@ -42,7 +42,7 @@ def produto(request, pk):
     return render(request, 'produto.html', to_dict)
 
 
-def error404(request,ex):
+def error404(request, exception):
     template = loader.get_template('404.html')
     return HttpResponse(content=template.render(),
         content_type='text/html; charset=utf8',
