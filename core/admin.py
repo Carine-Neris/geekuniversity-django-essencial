@@ -3,7 +3,7 @@ from .models import Cliente, Produtos
 
 
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('nome','email')
+    list_display = ('nome', 'email', 'born_in_fifties')
 
 
 class ProdutosAdmin(admin.ModelAdmin):
