@@ -20,10 +20,14 @@ def contato(request):
 
 
 def teste(request):
+    """https://docs.djangoproject.com/en/4.0/ref/request-response/"""
     print(dir(request))
     print(request.headers)
     print(request.user)
     print(request.method)
+    print(request.scheme)
+    print(request.body)
+    print(request.path)
     context = {
         'curso': 'Programação web',
         'linguagem': 'Python',
