@@ -11,14 +11,13 @@ from django.core.paginator import Paginator
 
 class PaginatorCostumizado(Paginator):
 
-
     @cached_property
     def count(self):
         return 9999999999
 
 
-# Está implementação só funciona em bancos como mysql e postgresql. o sql não
-# imlementa esse timeout
+# Está implementação só funciona em bancos como mysql e postgresql. o sqlite não
+# implementa esse timeout
 class TimeLimitedPaginator(Paginator):
     """
     Paginator that enforces a timeout on the count operation.
