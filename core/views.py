@@ -20,8 +20,10 @@ def contato(request):
 
 
 def teste(request):
+    print(dir(request))
     print(request.headers)
     print(request.user)
+    print(request.method)
     context = {
         'curso': 'Programação web',
         'linguagem': 'Python',
